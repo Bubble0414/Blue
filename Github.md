@@ -1,0 +1,9 @@
+- win+R  打开并输入"cmd",回车进入CMD界面
+- 在Github上创建仓库
+- 输入"上传文件地址"回车
+- 输入"git init"回车
+- 输入"git add *"回车
+- 输入"git commit -m"描述内容"  "回车
+- 复制仓库中的地址
+- 输入"git remote add origin 仓库地址"回车
+- 输入"git push -u origin master"回车
