@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.lostMapper">
+    <select id="getLostMessage" resultType="com.example.pojo.lost">
+        select *
+        from test.lostmessage
+    </select>
+
+    <select id="getLostMessageByDate" resultType="com.example.pojo.lost" parameterType="String">
+        select *
+        from test.lostmessage
+        where lost_date = #{lost_date}
+    </select>
+    <select id="getLostMessageByType" resultType="com.example.pojo.lost">
+        select *
+        from test.lostmessage
+        where lost_name = #{lost_name}
+    </select>
+
+    <insert id="addLost" parameterType="com.example.pojo.lost">
+        insert into test.lostmessage
+        values (#{lost_id}, #{lost_name}, #{lost_position}, #{lost_description}, #{claim_position}, #{lost_date}, #{is_returned});
+    </insert>
+
+    <update id="updateLost" parameterType="com.example.pojo.lost">
+        update test.lostmessage
+        set lost_name=#{lost_name},lost_date=#{lost_date},lost_position=#{lost_position},lost_description=#{lost_description},claim_position=#{claim_position},is_returned=#{is_returned}
+            where lost_id = #{lost_id};
+    </update>
+
+    <delete id="deleteLost" parameterType="int">
+        delete
+        from test.lostmessage
+        where lost_id = #{lost_id};
+    </delete>
+
+</mapper>
